@@ -1,0 +1,119 @@
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+using namespace std;
+class Node
+{public:
+	int data;
+	Node *next;
+
+};
+class Stack
+{private:
+	Node *top;
+public:
+	Stack()
+	{
+		top = NULL;
+	}
+	bool IsEmpty()
+	{
+		if (top==NULL)
+		{
+			cout << "Stack UnderFlow";
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		
+	}
+	bool IsFull()
+	{
+		Node *p = new Node;
+		if (p==NULL)
+		{
+			cout << " Stack OverFLow";
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	void Push(int x)
+	{
+		if (IsFull() == 1);
+		else
+		{
+			Node *p = new Node;
+			p->data = x;
+			p->next = top;
+			top = p;
+			p = NULL;
+			
+		}
+	}
+	int Pop()
+	{
+		if (IsEmpty() == 1);
+		else
+		{
+			
+			Node *p;
+			p = top;
+			top = top->next;
+			
+			return p->data;
+		}
+	}
+	void Display()
+	{
+		Node *p;
+		p = top;
+		if (p!=NULL)
+		{
+			while (p!=NULL)
+			{
+				cout << p->data << " ";
+				p = p->next;
+			}
+		}
+		else
+		{
+			cout << " Stack Is Empty. Nothing to Display::";
+		}
+
+		
+	}
+
+
+
+
+
+};
+
+
+
+
+
+int main()
+{
+	Stack st;
+	st.Push(10);
+	st.Push(11);
+	st.Push(12);
+	st.Push(13);
+	st.Push(14);
+	st.Push(15);
+	st.Push(16);
+	cout<<st.Pop()<<endl;
+	
+	st.Display();
+	int x;
+	cin >> x;
+	
+    return 0;
+}
